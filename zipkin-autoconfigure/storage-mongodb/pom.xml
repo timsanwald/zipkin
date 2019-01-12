@@ -18,41 +18,22 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>io.zipkin.zipkin2</groupId>
-    <artifactId>parent</artifactId>
+    <groupId>io.zipkin.java</groupId>
+    <artifactId>zipkin-autoconfigure</artifactId>
     <version>2.11.13-SNAPSHOT</version>
   </parent>
 
-  <artifactId>zipkin-storage-parent</artifactId>
-  <name>Storage</name>
-  <packaging>pom</packaging>
+  <artifactId>zipkin-autoconfigure-storage-mongodb</artifactId>
+  <name>Auto Configuration: MongoDB Storage (v2)</name>
 
   <properties>
-    <main.basedir>${project.basedir}/..</main.basedir>
-    <main.java.version>1.8</main.java.version>
-    <main.signature.artifact>java18</main.signature.artifact>
+    <main.basedir>${project.basedir}/../..</main.basedir>
   </properties>
 
-  <modules>
-    <module>cassandra-v1</module>
-    <module>cassandra</module>
-    <module>mysql-v1</module>
-    <module>elasticsearch</module>
-    <module>mongodb</module>
-  </modules>
-
-  <build>
-    <plugins>
-      <!-- disable retrolambda as we set language level to 1.8 -->
-      <plugin>
-        <groupId>net.orfjackal.retrolambda</groupId>
-        <artifactId>retrolambda-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>none</phase>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+  <dependencies>
+    <dependency>
+      <groupId>io.zipkin.zipkin2</groupId>
+      <artifactId>zipkin-storage-mongodb</artifactId>
+    </dependency>
+  </dependencies>
 </project>
